@@ -1,0 +1,78 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f9;
+  text-align: center;
+  transition: background-color 0.5s, color 0.5s; /* Transición suave */
+}
+
+h1 {
+  color: #333;
+  transition: color 0.5s; /* Transición suave */
+}
+
+#form-gasto {
+  margin: 20px auto;
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+}
+
+#form-gasto input,
+#form-gasto select,
+#form-gasto button {
+  padding: 10px;
+  margin: 5px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+#gastos-lista {
+  margin-top: 20px;
+}
+
+/* Estilo del modo oscuro */
+body.dark-mode {
+  background-color: #333;
+  color: #fff;
+}
+
+body.dark-mode h1 {
+  color: #fff; /* Color del h1 en modo oscuro */
+}
+
+body.dark-mode #form-gasto input,
+body.dark-mode #form-gasto select,
+body.dark-mode #form-gasto button {
+  background-color: #444; /* Color de fondo de inputs en modo oscuro */
+  border: 1px solid #555; /* Color del borde de inputs en modo oscuro */
+  color: #fff; /* Color de texto de inputs en modo oscuro */
+}
+
+/* Estilo del botón de modo */
+.boton-modo {
+  position: absolute;
+  top: 20px; /* Espacio desde la parte superior */
+  right: 20px; /* Espacio desde la derecha */
+  background-color: #008cff;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s;
+}
+
+.boton-modo:hover {
+  background-color: #1976d2; /* Color más oscuro al pasar el ratón */
+}
+
+/* Colores y apariencia en modo oscuro */
+body.dark-mode .boton-modo {
+  background-color: #444; /* Color de fondo en modo oscuro */
+  color: white; /* Color de texto en modo oscuro */
+}
