@@ -17,18 +17,16 @@ class Gasto {
     }
 }
 
-// Asincronismo con fetch para cargar categorías desde JSON local
-fetch('data.json')
-    .then(res => res.json())
-    .then(data => {
-        data.categorias.forEach(categoria => {
-            const option = document.createElement('option');
-            option.value = categoria;
-            option.textContent = categoria;
-            categoriaSelect.appendChild(option);
-        });
-    })
-    .catch(err => console.error("Error al cargar categorías:", err));
+// Categorías incrustadas en lugar de usar fetch
+const categorias = ["Alimentos", "Transporte", "Salud", "Entretenimiento", "Educación", "Otros"];
+
+// Cargar categorías en el select
+categorias.forEach(categoria => {
+    const option = document.createElement('option');
+    option.value = categoria;
+    option.textContent = categoria;
+    categoriaSelect.appendChild(option);
+});
 
 // Función para agregar un nuevo gasto
 form.addEventListener('submit', (e) => {
@@ -105,7 +103,6 @@ function actualizarGrafico() {
         }
     });
 }
-
 
 // Cargar los gastos desde el almacenamiento al iniciar
 document.addEventListener('DOMContentLoaded', () => {

@@ -158,8 +158,9 @@ body.dark-mode .boton-modo {
 #ordenar-container {
   margin-top: 20px;
   display: flex;
-  flex-direction: column;
+  flex-direction: row; /* Cambié de column a row */
   align-items: center;
+  justify-content: center; /* Centra los botones horizontalmente */
 }
 
 #ordenar-container select {
@@ -168,6 +169,35 @@ body.dark-mode .boton-modo {
   border-radius: 5px;
   font-size: 14px;
   border: 1px solid #ddd;
+}
+
+/* Contenedor para los botones de ordenar */
+.ordenar-botones {
+  display: flex; /* Alinear los botones horizontalmente */
+  justify-content: center; /* Centrar los botones */
+  gap: 20px; /* Espacio entre los botones */
+  margin-top: 20px; /* Margen superior */
+}
+
+.ordenar-botones button {
+  background-color: #4caf50; /* Color de fondo verde */
+  color: white; /* Color del texto */
+  border: none; /* Sin borde */
+  padding: 10px 20px; /* Espaciado interno */
+  font-size: 16px; /* Tamaño de la fuente */
+  font-weight: bold; /* Negrita */
+  border-radius: 5px; /* Bordes redondeados */
+  cursor: pointer; /* Cambia el cursor a puntero */
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Efectos de transición */
+}
+
+.ordenar-botones button:hover {
+  background-color: #45a049; /* Cambia el color al pasar el mouse */
+  transform: scale(1.05); /* Aumenta ligeramente el tamaño */
+}
+
+.ordenar-botones button:active {
+  transform: scale(0.95); /* Disminuye ligeramente el tamaño al hacer clic */
 }
 
 /* Responsividad */
