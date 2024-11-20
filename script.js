@@ -133,14 +133,15 @@ botonModo.addEventListener('click', () => {
     }
 });
 
-// Función para ordenar gastos
+// Función para ordenar los gastos
 function ordenarGastos(criterio) {
     if (criterio === 'monto') {
         gastos.sort((a, b) => b.monto - a.monto);
     } else if (criterio === 'fecha') {
         gastos.sort((a, b) => new Date(b.fecha) - new Date(a.fecha));
     }
-    mostrarGastos();
+    mostrarGastos(); // Actualiza la lista de gastos después de ordenar
+    actualizarGrafico(); // Actualiza el gráfico también
 }
 
 // Agregar eventos para ordenar
