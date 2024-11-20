@@ -1,13 +1,19 @@
+/* Estilo general */
 body {
   font-family: Arial, sans-serif;
   background-color: #f4f4f9;
   text-align: center;
-  transition: background-color 0.5s, color 0.5s; /* Transición suave */
+  transition: background-color 0.5s, color 0.5s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
 }
 
 h1 {
   color: #333;
-  transition: color 0.5s; /* Transición suave */
+  transition: color 0.5s;
+  margin-bottom: 20px;
 }
 
 #form-gasto {
@@ -24,10 +30,68 @@ h1 {
   margin: 5px;
   border: 1px solid #ddd;
   border-radius: 5px;
+  font-size: 14px;
+}
+
+/* Contenedor principal con flexbox para dividir gastos y gráfico */
+#contenedor-principal {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Dos columnas de igual tamaño */
+  gap: 30px; /* Espacio entre los elementos */
+  width: 100%;
+  margin-top: 30px;
 }
 
 #gastos-lista {
   margin-top: 20px;
+  width: 100%; /* Usar todo el ancho disponible */
+  max-width: 500px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background-color: white;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  height: auto; /* Cambiar a auto para un ajuste más dinámico */
+}
+
+#grafico-container {
+  margin-top: 20px;
+  width: 100%; /* Usar todo el ancho disponible */
+  max-width: 500px;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: white;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  height: 300px; /* Ajustar altura para que el gráfico sea visible */
+}
+
+/* Estilo para los gastos en la lista */
+.gasto-item {
+  padding: 10px;
+  margin: 5px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.gasto-item.visible {
+  opacity: 1;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.gasto-item button {
+  background-color: #f44336;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.gasto-item button:hover {
+  background-color: #d32f2f;
 }
 
 /* Estilo del modo oscuro */
@@ -37,22 +101,36 @@ body.dark-mode {
 }
 
 body.dark-mode h1 {
-  color: #fff; /* Color del h1 en modo oscuro */
+  color: #fff;
 }
 
 body.dark-mode #form-gasto input,
 body.dark-mode #form-gasto select,
 body.dark-mode #form-gasto button {
-  background-color: #444; /* Color de fondo de inputs en modo oscuro */
-  border: 1px solid #555; /* Color del borde de inputs en modo oscuro */
-  color: #fff; /* Color de texto de inputs en modo oscuro */
+  background-color: #444;
+  border: 1px solid #555;
+  color: #fff;
 }
 
-/* Estilo del botón de modo */
+body.dark-mode #gastos-lista {
+  background-color: #444;
+  color: #fff;
+}
+
+body.dark-mode .gasto-item {
+  background-color: #555;
+}
+
+body.dark-mode .boton-modo {
+  background-color: #444;
+  color: white;
+}
+
+/* Botón de modo */
 .boton-modo {
   position: absolute;
-  top: 20px; /* Espacio desde la parte superior */
-  right: 20px; /* Espacio desde la derecha */
+  top: 20px;
+  right: 20px;
   background-color: #008cff;
   color: white;
   border: none;
@@ -68,11 +146,40 @@ body.dark-mode #form-gasto button {
 }
 
 .boton-modo:hover {
-  background-color: #1976d2; /* Color más oscuro al pasar el ratón */
+  background-color: #1976d2;
 }
 
-/* Colores y apariencia en modo oscuro */
 body.dark-mode .boton-modo {
-  background-color: #444; /* Color de fondo en modo oscuro */
-  color: white; /* Color de texto en modo oscuro */
+  background-color: #444;
+  color: white;
+}
+
+/* Estilo del selector de orden */
+#ordenar-container {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#ordenar-container select {
+  padding: 8px;
+  margin: 10px 0;
+  border-radius: 5px;
+  font-size: 14px;
+  border: 1px solid #ddd;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+  #contenedor-principal {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #gastos-lista,
+  #grafico-container {
+    width: 90%;
+    margin-bottom: 20px;
+  }
 }

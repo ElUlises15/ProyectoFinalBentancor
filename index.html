@@ -12,8 +12,9 @@
 
 <body>
     <h1>Calculadora de Gastos</h1>
-
     <button id="modo-boton" class="boton-modo">☀️</button>
+
+    <div id="mensajes-error" class="mensaje-error"></div>
 
     <form id="form-gasto">
         <input type="text" id="nombre" placeholder="Descripción del gasto" required>
@@ -22,9 +23,20 @@
         <button type="submit" id="boton-gasto">Agregar Gasto</button>
     </form>
 
-    <div id="gastos-lista"></div>
-    <div id="grafico-container">
-        <canvas id="graficoGastos" width="400" height="400"></canvas>
+    <div id="ordenar-container">
+        <label for="ordenar">Ordenar por:</label>
+        <select id="ordenar">
+            <option value="fecha">Fecha</option>
+            <option value="monto">Monto</option>
+            <option value="nombre">Nombre</option>
+        </select>
+    </div>
+
+    <div id="contenedor-principal">
+        <div id="gastos-lista"></div>
+        <div id="grafico-container">
+            <canvas id="graficoGastos"></canvas>
+        </div>
     </div>
 
     <script src="script.js"></script>
